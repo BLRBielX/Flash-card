@@ -1,46 +1,107 @@
  *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background-color: #f5f2f2;  
-  box-sizing: border-box;
-}
-.cabecalho {
-  background-color: #7e3e1c;
-  padding: 15px 25px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;  
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f5f2f2;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.cabecalho-link {
-  color: #fff;
-  text-decoration: none;
+/* CABEÇALHO */
+.cabecalho{
+    background-color:#7e3e1c;
+    padding:15px 25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
-h1 {
-  color: #fff;
-  font-size: 24px;
-}
-main {
-  flex: 1;
+.cabecalho h1{
+    color:#fff;
+    font-size:24px;
 }
 
-.cartao {
-    width: 260px;
-    height: 200px;
+.cabecalho-link{
+    color:#fff;
+    text-decoration:none;
 }
 
-.cartao-imagem {
-    width: 100%;
+/* MAIN */
+main{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:40px;
+    padding:40px;
 }
-footer {
-background-color: #7e3e1c;
-padding: 15px 25px;
-color: #fff;
+
+main h2{
+    width:100%;
+    text-align:center;
+    margin-bottom:20px;
+}
+
+/* CARTÃO */
+.cartao{
+    width:300px;
+    height:400px;
+    perspective:1000px;
+}
+
+.cartao-interno{
+    width:100%;
+    height:100%;
+    position:relative;
+    transform-style:preserve-3d;
+    transition:0.8s;
+}
+
+.cartao:hover .cartao-interno{
+    transform:rotateY(180deg);
+}
+
+/* FRENTE E VERSO */
+.cartao-frente,
+.cartao-verso{
+    width:100%;
+    height:100%;
+    position:absolute;
+    backface-visibility:hidden;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 5px 10px rgba(0,0,0,0.3);
+    background:#fff;
+}
+
+.cartao-verso{
+    transform:rotateY(180deg);
+}
+
+/* IMAGEM */
+.cartao-imagem{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+}
+
+/* TEXTO */
+.cartao p{
+    padding:10px;
+    text-align:center;
+    font-size:16px;
+}
+
+/* FOOTER */
+footer{
+    background-color:#7e3e1c;
+    color:#fff;
+    text-align:center;
+    padding:15px;
 }
